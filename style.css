@@ -1,0 +1,187 @@
+/* IMPORTANTE: O código a seguir terá comentários explicando cada parte do CSS para me ajudar na compreensão e na fixação do conteúdo visto que são meus primeiros projetos. */
+
+
+/* A regra @import é usada para importar fontes, estilos ou outros arquivos CSS externos para o arquivo CSS atual. No caso, a regra @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); está importando a fonte "Bebas Neue" do Google Fonts, permitindo que essa fonte seja usada em todo o documento CSS. */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Background-color adiciona uma cor de fundo para a página, nesse caso, preto. A cor do texto é definida como #eee, que é um tom claro de cinza, para garantir boa legibilidade contra o fundo escuro. O margin é definido como 0 para remover qualquer espaçamento padrão ao redor da página, e a font-size é definida como 16px para estabelecer um tamanho de fonte base consistente em toda a página.*/
+body {
+    font-family: 'Bebas Neue';
+    background-color: #000;
+    color: #eee;
+    margin:0;
+}
+
+/* Text-decoration é uma propriedade CSS que controla a decoração do texto, como sublinhado, linha sobre o texto ou linha através do texto. No caso de a, que é a tag de link, text-decoration: none; remove qualquer decoração padrão, como sublinhado, para criar um estilo de link mais limpo e moderno. */
+a {
+    text-decoration: none;
+    color: #eee;
+}
+
+/* List-style é uma propriedade CSS que controla a aparência dos itens de uma lista. No caso de ul, que é a tag de lista não ordenada, list-style: none; remove os marcadores padrão (como pontos ou números) que aparecem antes dos itens da lista, permitindo um estilo mais personalizado para os itens da lista. */
+ul {
+    list-style: none;
+}
+
+/* O display definido como flex faz com que os itens dentro do contêiner sejam organizados em uma linha (por padrão) e permite que eles se ajustem automaticamente ao espaço disponível. O gap é uma maneira conveniente de adicionar espaçamento entre os itens sem a necessidade de margens adicionais, tornando o layout mais limpo e fácil de manter. */
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* O width é definido como 1140px para limitar a largura do header, garantindo que o conteúdo dentro do header não se estenda além desse limite, o que pode ajudar a manter um layout mais organizado e centrado na página. */
+/* O max-width é definido como 80% para garantir que o header seja responsivo, ou seja, ele pode se ajustar a diferentes tamanhos de tela, mas não excederá 80% da largura da janela do navegador. O margin: auto; centraliza o header horizontalmente dentro do contêiner pai, garantindo que ele fique no centro da página. A altura é definida como 50px para estabelecer uma altura consistente para o header, e display: flex; junto com align-items: center; alinha verticalmente os itens dentro do header, garantindo que eles fiquem centralizados em relação à altura do header. */
+header {
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+/* O margin-right é definido como 40px para adicionar um espaço de 40 pixels à direita de cada link dentro do header, criando um espaçamento visual entre os links e melhorando a legibilidade e a estética do layout. */
+header a {
+    margin-right: 40px;
+}
+
+/* A classe carrossel é usada para criar um contêiner para um carrossel de imagens. O width é definido como 100vw, o que significa que o carrossel ocupará toda a largura da janela do navegador. O height é definido como 100vh, o que significa que o carrossel ocupará toda a altura da janela do navegador. O overflow: hidden; é usado para ocultar qualquer conteúdo que ultrapasse os limites do contêiner, garantindo que apenas a parte visível do carrossel seja exibida. O margin-top: -50px; é usado para ajustar a posição vertical do carrossel, movendo-o para cima em 50 pixels, o que pode ser útil para sobrepor o carrossel ao header ou para criar um efeito visual específico. A posição relativa é definida para permitir que os itens dentro do carrossel sejam posicionados de forma absoluta em relação a ele. */
+.carrossel {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: -50px;
+    position: relative;
+}
+
+.carrossel .lista .item {
+    position: absolute;
+    inset: 0 0 0 0;
+}
+
+/* A classe item é usada para estilizar cada item individual dentro do carrossel. O width é definido como 100% para garantir que cada item ocupe toda a largura do contêiner pai, e o height é definido como 100% para garantir que cada item ocupe toda a altura do contêiner pai. O position: absolute; é usado para posicionar cada item de forma absoluta em relação ao contêiner pai, permitindo que eles se sobreponham uns aos outros, o que é essencial para o funcionamento do carrossel. */
+.carrossel .lista .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrossel .lista .item .conteudo {
+    position: absolute;
+    top: 15%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.author {
+    font-weight: bold;
+    letter-spacing: 20px;
+    margin-bottom: 5px;
+}
+
+h2.title {
+    font-weight: bold;
+    font-size: 5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.3em;
+}
+
+h2.topico {
+    font-weight: bold;
+    font-size: 5em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: orangered;
+    line-height: 0.8em;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.buttons button {
+    border: none;
+    background-color: #eee;
+    letter-spacing: 1px;
+    font-family: Poppins;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+.buttons button:nth-child(2) {
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
+
+.thumbnail {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail .thumb {
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.thumbnail .thumb .descript {
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    right: 10px;
+}
+
+.thumbnail h2 {
+    font-size: 25px;
+    line-height: 1em;
+}
+
+.setas {
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.setas button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+}

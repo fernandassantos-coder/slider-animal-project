@@ -253,5 +253,73 @@ h2.topico {
         height: 100%;
         left: 0;
         bottom: 0;
+        border-radius: 0;
+    }
+}
+
+.carrossel.next .thumbnail .item:nth-last-child(1) {
+    width: 0;
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+@keyframes showThumbnail {
+    to {
+        width: 150px;
+    }
+}
+
+.carrossel.next .thumbnail {
+    transform: translateX(150px);
+    animation: transformThumbnail .5s linear 1 forwards;
+}
+
+@keyframes transformThumbnail {
+    to {
+        transform: translateX(0);
+    }
+}
+
+.carrossel.prev .lista .item:nth-child(2) {
+    z-index: 2;
+}
+
+.carrossel.prev .lista .item:nth-child(2) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage 0.5s linear 1 forwards;
+}
+
+@keyframes outImage {
+    to {
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
+
+.carrossel.prev .thumbnail .item:nth-child(1) {
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+.carrossel.prev .lista .item:nth-child(2) .author,
+.carrossel.prev .lista .item:nth-child(2) .title,
+.carrossel.prev .lista .item:nth-child(2) .topico,
+.carrossel.prev .lista .item:nth-child(2) .descricao,
+.carrossel.prev .lista .item:nth-child(2) .buttons {
+    animation: contentOut 1.5s linear 1 forwards;
+}
+
+@keyframes contentOut {
+    to {
+        transform: translateY(150px);
+        filter: blur(20px);
+        opacity: 0;
     }
 }
